@@ -4,246 +4,295 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ILZ Education | English Classes for Young Learners</title>
-<meta name="description" content="Interactive online English classes for young learners ages 4-12. Taught by a certified ESL teacher with 15+ years of experience. Book a free demo class today.">
+<meta name="description" content="Interactive online English classes for young learners ages 4-12. Certified ESL teacher with 15+ years of experience. Book a free demo class today!">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #111; color: #fff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --gold: #FFC600;
+  --dark: #0f0f0f;
+  --dark2: #1a1a1a;
+  --teal: #00C9A7;
+  --purple: #7B5EA7;
+}
+body { font-family: 'Nunito', sans-serif; background: var(--dark); color: #fff; overflow-x: hidden; }
 
-  /* NAV */
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(17,17,17,0.97);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    position: sticky; top: 0; z-index: 100;
-  }
-  .nav-logo { font-size: 24px; font-weight: 900; color: #FFC600; letter-spacing: -1px; text-decoration: none; }
-  .nav-logo span { color: rgba(255,255,255,0.45); font-weight: 400; font-size: 14px; margin-left: 6px; letter-spacing: 0; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: #fff; }
-  .nav-cta {
-    background: #FFC600; color: #111; font-size: 14px; font-weight: 700;
-    padding: 10px 22px; border-radius: 100px; text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  .nav-cta:hover { opacity: 0.9; }
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 48px;
+  background: rgba(15,15,15,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,198,0,0.12);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-box {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka One', cursive; font-size: 16px; color: #111; font-weight: 900;
+}
+.nav-logo-name { font-family: 'Fredoka One', cursive; font-size: 20px; color: var(--gold); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: #111; font-size: 14px; font-weight: 800;
+  padding: 10px 24px; border-radius: 100px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(255,198,0,0.3); transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,198,0,0.5); }
 
-  /* HERO */
-  .hero {
-    padding: 80px 40px 60px;
-    display: flex; align-items: center; gap: 60px;
-    max-width: 1100px; margin: 0 auto;
-  }
-  .hero-text { flex: 1; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,198,0,0.1); border: 1px solid rgba(255,198,0,0.25);
-    border-radius: 100px; padding: 5px 16px;
-    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-    color: #FFC600; text-transform: uppercase; margin-bottom: 24px;
-  }
-  .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #FFC600; }
-  .hero-h1 {
-    font-size: 52px; font-weight: 900; line-height: 1.1;
-    color: #fff; margin-bottom: 20px; letter-spacing: -2px;
-  }
-  .hero-h1 .gold { color: #FFC600; }
-  .hero-sub {
-    font-size: 17px; color: rgba(255,255,255,0.5);
-    line-height: 1.7; margin-bottom: 32px; max-width: 480px;
-  }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary {
-    background: #FFC600; color: #111; font-size: 15px; font-weight: 700;
-    padding: 14px 32px; border-radius: 14px; text-decoration: none;
-    transition: opacity 0.2s; display: inline-block;
-  }
-  .btn-primary:hover { opacity: 0.9; }
-  .btn-secondary {
-    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7);
-    font-size: 15px; font-weight: 600;
-    padding: 14px 32px; border-radius: 14px; text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.12); transition: background 0.2s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
-  .hero-card {
-    width: 260px; flex-shrink: 0;
-    background: linear-gradient(145deg, #1a1a2e, #16213e);
-    border-radius: 24px; padding: 28px;
-    border: 1px solid rgba(255,198,0,0.2);
-    text-align: center;
-  }
-  .hero-card-ilz { font-size: 56px; font-weight: 900; color: #FFC600; letter-spacing: -3px; line-height: 1; }
-  .hero-card-edu { font-size: 12px; letter-spacing: 5px; color: rgba(255,255,255,0.3); margin-bottom: 20px; text-transform: uppercase; }
-  .hero-card-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); margin-bottom: 8px; overflow: hidden; }
-  .hero-card-fill { height: 100%; border-radius: 2px; background: #FFC600; }
-  .hero-card-label { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 16px; letter-spacing: 0.5px; }
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 48px 80px; gap: 60px;
+  background: radial-gradient(ellipse at 15% 60%, rgba(255,198,0,0.07) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 20%, rgba(0,201,167,0.05) 0%, transparent 50%);
+  position: relative; overflow: hidden;
+}
+.hero-dots {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.hero-text { flex: 1; position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,198,0,0.1); border: 1.5px solid rgba(255,198,0,0.28);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 28px;
+  animation: fu 0.6s ease both;
+}
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: bpulse 2s infinite; }
+@keyframes bpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.4)} }
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 66px; line-height: 1.05; color: #fff;
+  margin-bottom: 20px; letter-spacing: -1px;
+  animation: fu 0.6s ease 0.1s both;
+}
+h1 .gold { color: var(--gold); }
+h1 .pencil { display: inline-block; animation: wiggle 2s ease-in-out infinite; }
+@keyframes wiggle { 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(8deg)} }
+.hero-sub {
+  font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.75;
+  margin-bottom: 36px; max-width: 460px;
+  animation: fu 0.6s ease 0.2s both;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fu 0.6s ease 0.3s both; }
+.btn-primary {
+  background: var(--gold); color: #111; font-size: 15px; font-weight: 800;
+  padding: 14px 30px; border-radius: 14px; text-decoration: none;
+  box-shadow: 0 4px 24px rgba(255,198,0,0.4); transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(255,198,0,0.55); }
+.btn-secondary {
+  background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.75); font-size: 15px; font-weight: 700;
+  padding: 14px 30px; border-radius: 14px; text-decoration: none; transition: background 0.2s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.12); }
 
-  /* PENCIL STRIP */
-  .pencil-strip {
-    display: flex; align-items: flex-end;
-    background: #0a0a0a; overflow: hidden; height: 70px;
-  }
-  .ps-p { display: flex; flex-direction: column; align-items: center; flex: 1; }
-  .ps-p:nth-child(odd) { animation: pBounce 2.2s ease-in-out infinite; }
-  .ps-p:nth-child(even) { animation: pBounce 2.2s ease-in-out 0.4s infinite; }
-  .ps-p:nth-child(3n) { animation: pBounce 1.9s ease-in-out 0.8s infinite; }
-  @keyframes pBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  .ps-eraser { width: 100%; height: 8px; background: #f0c0c0; }
-  .ps-band { width: 100%; height: 5px; background: #d4a0a0; }
-  .ps-body { width: 100%; flex: 1; }
-  .ps-wood { width: 100%; height: 9px; background: #e8c48a; }
-  .ps-tip { width: 0; height: 0; border-left: 50% solid transparent; border-right: 50% solid transparent; align-self: center; }
+/* Hero card */
+.hero-card-wrap { flex: 0 0 460px; position: relative; z-index: 2; animation: fu 0.6s ease 0.35s both; }
+.float-badge {
+  position: absolute;
+  background: #1e1e2e; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5); font-size: 12px; font-weight: 700;
+}
+.fb1 { top: -16px; right: -20px; animation: flt 3s ease-in-out infinite; }
+.fb2 { bottom: 60px; left: -36px; animation: flt 3s ease-in-out 1s infinite; }
+.fb3 { bottom: -16px; right: 30px; animation: flt 3s ease-in-out 0.5s infinite; }
+@keyframes flt { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.hero-card {
+  background: linear-gradient(145deg, #1e1e30, #141428);
+  border-radius: 28px; padding: 32px;
+  border: 1.5px solid rgba(255,198,0,0.18);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 80px rgba(255,198,0,0.05);
+  position: relative; overflow: hidden;
+}
+.card-glow {
+  position: absolute; width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(255,198,0,0.12) 0%, transparent 70%);
+  top: -80px; right: -80px; pointer-events: none;
+}
+.card-ilz { font-family: 'Fredoka One', cursive; font-size: 68px; color: var(--gold); letter-spacing: -3px; line-height: 1; }
+.card-sub { font-size: 11px; letter-spacing: 5px; color: rgba(255,255,255,0.25); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.card-item {
+  border-radius: 12px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-item-icon { font-size: 22px; }
+.card-item-name { font-size: 12px; font-weight: 800; color: rgba(255,255,255,0.8); }
+.card-item-sub { font-size: 10px; color: rgba(255,255,255,0.3); font-weight: 600; }
+.prog-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+.prog-label { font-size: 11px; color: rgba(255,255,255,0.4); width: 120px; font-weight: 700; white-space: nowrap; }
+.prog-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+.prog-val { font-size: 11px; font-weight: 800; }
 
-  /* STATS */
-  .stats {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .stat {
-    padding: 32px 20px; text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.07);
-  }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-size: 36px; font-weight: 900; color: #FFC600; }
-  .stat-label { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+/* PENCIL ROW */
+.pencils {
+  display: flex; align-items: flex-end; background: #141414;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden; height: 100px;
+}
+.pen { flex: 1; display: flex; flex-direction: column; align-items: stretch; }
+.pen:nth-child(3n+1) { animation: pb 2.1s ease-in-out infinite; }
+.pen:nth-child(3n+2) { animation: pb 2.5s ease-in-out 0.35s infinite; }
+.pen:nth-child(3n+3) { animation: pb 1.9s ease-in-out 0.7s infinite; }
+@keyframes pb { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.pen-eraser { height: 9px; background: #f4c5c5; border-radius: 3px 3px 0 0; }
+.pen-band { height: 6px; background: #c8a0a0; }
+.pen-shaft { flex: 1; }
+.pen-wood { height: 9px; background: #D4A96A; }
+.pen-point { display: flex; justify-content: center; }
+.pen-tip { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; }
 
-  /* SECTIONS */
-  .section { padding: 64px 40px; max-width: 1100px; margin: 0 auto; }
-  .section-badge {
-    font-size: 11px; font-weight: 700; letter-spacing: 2px;
-    color: #FFC600; text-transform: uppercase; margin-bottom: 10px;
-  }
-  .section-title { font-size: 32px; font-weight: 900; margin-bottom: 36px; color: #fff; letter-spacing: -0.5px; }
+/* STATS */
+.stats { display: grid; grid-template-columns: repeat(3,1fr); background: #161616; }
+.stat { padding: 40px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Fredoka One', cursive; font-size: 52px; color: var(--gold); line-height: 1; }
+.stat-l { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 8px; font-weight: 600; }
 
-  /* HOW IT WORKS */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .step {
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px; padding: 28px;
-  }
-  .step-num {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: #FFC600; color: #111; font-size: 18px; font-weight: 900;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 16px;
-  }
-  .step-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-  .step-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+/* SECTIONS */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+.stag {
+  display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2.5px;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+  padding: 4px 14px; background: rgba(255,198,0,0.08);
+  border-radius: 100px; border: 1px solid rgba(255,198,0,0.2);
+}
+.stitle {
+  font-family: 'Fredoka One', cursive; font-size: 38px; color: #fff;
+  margin-bottom: 40px; letter-spacing: -0.5px; line-height: 1.1;
+}
 
-  /* LEVELS */
-  .levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .level-card {
-    border-radius: 16px; padding: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.02);
-  }
-  .level-emoji { font-size: 24px; margin-bottom: 10px; }
-  .level-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-  .level-count { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
-  .level-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; margin-bottom: 8px; }
-  .level-fill { height: 100%; border-radius: 2px; }
-  .level-status { font-size: 11px; font-weight: 600; }
+/* STEPS */
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.step {
+  background: #1a1a1a; border: 1.5px solid rgba(255,255,255,0.07);
+  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.step:hover { transform: translateY(-5px); border-color: rgba(255,198,0,0.2); }
+.step-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.step-num {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 18px;
+}
+.step-t { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.step-d { font-size: 14px; color: rgba(255,255,255,0.42); line-height: 1.72; }
 
-  /* ABOUT */
-  .about-wrap {
-    background: rgba(255,255,255,0.02);
-    border-top: 1px solid rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .about {
-    padding: 64px 40px; max-width: 1100px; margin: 0 auto;
-    display: flex; gap: 48px; align-items: flex-start;
-  }
-  .about-avatar {
-    width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;
-    background: linear-gradient(135deg, #FFC600, #ff8c00);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px; font-weight: 900; color: #111;
-    border: 3px solid rgba(255,198,0,0.3);
-  }
-  .about-name { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; }
-  .about-title { font-size: 13px; color: #FFC600; margin-bottom: 16px; letter-spacing: 0.5px; font-weight: 600; }
-  .about-bio { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 600px; }
-  .about-badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-  .badge {
-    font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 100px;
-    background: rgba(255,198,0,0.1); color: #FFC600;
-    border: 1px solid rgba(255,198,0,0.2);
-  }
+/* LEVELS */
+.curriculum-bg { background: #141414; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.levels { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.level {
+  border-radius: 18px; padding: 24px;
+  border: 1.5px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  transition: transform 0.3s;
+}
+.level:hover { transform: translateY(-4px); }
+.level-icon { font-size: 34px; margin-bottom: 12px; }
+.level-n { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.level-c { font-size: 12px; color: rgba(255,255,255,0.28); margin-bottom: 16px; font-weight: 600; }
+.level-bar { height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; margin-bottom: 10px; overflow: hidden; }
+.level-fill { height: 100%; border-radius: 3px; }
+.level-s { font-size: 12px; font-weight: 700; }
 
-  /* TESTIMONIAL */
-  .testimonial-wrap {
-    background: #0d0d0d;
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .testimonial {
-    padding: 64px 40px; max-width: 700px; margin: 0 auto; text-align: center;
-  }
-  .testimonial-quote {
-    font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.8);
-    line-height: 1.6; margin-bottom: 20px; font-style: italic;
-  }
-  .testimonial-author { font-size: 13px; color: rgba(255,255,255,0.3); }
-  .testimonial-stars { color: #FFC600; font-size: 18px; margin-bottom: 16px; }
+/* ABOUT */
+.about-bg { background: linear-gradient(160deg, #0f0f1e 0%, #0f0f0f 100%); border-top: 1px solid rgba(255,255,255,0.06); }
+.about { display: flex; gap: 56px; align-items: flex-start; }
+.avatar-box {
+  flex-shrink: 0; width: 120px; height: 120px; border-radius: 24px;
+  background: linear-gradient(135deg, var(--gold), #ff8800);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka One', cursive; font-size: 52px; color: #111;
+  box-shadow: 0 8px 32px rgba(255,198,0,0.35);
+}
+.about-name { font-family: 'Fredoka One', cursive; font-size: 34px; color: #fff; margin-bottom: 6px; }
+.about-role { font-size: 13px; color: var(--gold); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 18px; }
+.about-bio { font-size: 15px; color: rgba(255,255,255,0.48); line-height: 1.8; max-width: 580px; }
+.badges { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+.abadge {
+  font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: 100px;
+  background: rgba(255,198,0,0.08); color: var(--gold); border: 1.5px solid rgba(255,198,0,0.2);
+}
 
-  /* CTA */
-  .cta-wrap {
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .cta-section {
-    padding: 80px 40px; text-align: center; max-width: 700px; margin: 0 auto;
-  }
-  .cta-title { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -1px; }
-  .cta-sub { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 32px; line-height: 1.6; }
-  .cta-btn {
-    display: inline-block;
-    background: #FFC600; color: #111; font-size: 17px; font-weight: 700;
-    padding: 16px 48px; border-radius: 16px; text-decoration: none;
-    transition: opacity 0.2s;
-  }
-  .cta-btn:hover { opacity: 0.9; }
-  .cta-note { font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 16px; }
+/* TESTIMONIAL */
+.testi-bg { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,0.05); }
+.testi { padding: 80px 48px; max-width: 680px; margin: 0 auto; text-align: center; }
+.testi-stars { font-size: 22px; color: var(--gold); letter-spacing: 4px; margin-bottom: 20px; }
+.testi-q { font-family: 'Fredoka One', cursive; font-size: 26px; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 18px; }
+.testi-a { font-size: 13px; color: rgba(255,255,255,0.3); font-weight: 600; }
 
-  /* FOOTER */
-  footer {
-    padding: 24px 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    background: #0a0a0a; flex-wrap: wrap; gap: 12px;
-  }
-  .footer-logo { font-size: 16px; font-weight: 900; color: #FFC600; }
-  .footer-links { display: flex; gap: 20px; list-style: none; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; }
-  .footer-links a:hover { color: rgba(255,255,255,0.6); }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+/* CTA */
+.cta-bg {
+  background: linear-gradient(135deg, rgba(255,198,0,0.07) 0%, rgba(0,201,167,0.04) 100%);
+  border-top: 1px solid rgba(255,198,0,0.14);
+}
+.cta { padding: 100px 48px; text-align: center; max-width: 680px; margin: 0 auto; }
+.cta-t { font-family: 'Fredoka One', cursive; font-size: 46px; color: #fff; margin-bottom: 14px; letter-spacing: -1px; line-height: 1.1; }
+.cta-s { font-size: 16px; color: rgba(255,255,255,0.42); margin-bottom: 36px; line-height: 1.72; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold); color: #111; font-size: 17px; font-weight: 800;
+  padding: 18px 48px; border-radius: 16px; text-decoration: none;
+  box-shadow: 0 6px 32px rgba(255,198,0,0.42); transition: transform 0.2s, box-shadow 0.2s;
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 44px rgba(255,198,0,0.58); }
+.cta-note { font-size: 13px; color: rgba(255,255,255,0.22); margin-top: 18px; }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .hero { flex-direction: column; padding: 40px 20px; gap: 32px; }
-    .hero-h1 { font-size: 36px; }
-    .hero-card { width: 100%; }
-    .stats { grid-template-columns: repeat(3, 1fr); }
-    .section { padding: 40px 20px; }
-    .steps { grid-template-columns: 1fr; }
-    .levels { grid-template-columns: repeat(2, 1fr); }
-    .about { flex-direction: column; padding: 40px 20px; gap: 24px; }
-    footer { flex-direction: column; text-align: center; padding: 20px; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
-  }
+/* FOOTER */
+footer {
+  padding: 28px 48px; display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.06); background: #080808; flex-wrap: wrap; gap: 14px;
+}
+.footer-logo { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--gold); }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.28); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.14); }
+
+@keyframes fu { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+@media(max-width:900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { flex-direction: column; padding: 100px 20px 60px; gap: 40px; }
+  h1 { font-size: 42px; }
+  .hero-card-wrap { flex: none; width: 100%; }
+  .steps, .levels { grid-template-columns: 1fr; }
+  .levels { grid-template-columns: repeat(2,1fr); }
+  .wrap { padding: 60px 20px; }
+  .about { flex-direction: column; gap: 28px; }
+  .cta { padding: 60px 20px; }
+  .cta-t { font-size: 36px; }
+  footer { flex-direction: column; text-align: center; padding: 20px; }
+  .stats { grid-template-columns: repeat(3,1fr); }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">ILZ <span>Education</span></a>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-box">ILZ</div>
+    <div class="nav-logo-name">ILZ Education</div>
+  </a>
   <ul class="nav-links">
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#curriculum">Curriculum</a></li>
@@ -251,161 +300,213 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="/privacy-policy">Privacy</a></li>
   </ul>
-  <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="nav-cta" target="_blank">Book Free Demo</a>
+  <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="nav-cta" target="_blank">Book Free Demo ✏️</a>
 </nav>
 
 <!-- HERO -->
-<section style="background:#111;">
-  <div class="hero">
-    <div class="hero-text">
-      <div class="hero-badge"><div class="hero-badge-dot"></div>Now enrolling young learners</div>
-      <h1 class="hero-h1">Learn English<br>the <span class="gold">fun way</span> ✏️</h1>
-      <p class="hero-sub">Interactive online English classes for young learners ages 4–12. Taught by a certified ESL teacher with 15+ years of experience teaching students worldwide.</p>
-      <div class="hero-btns">
-        <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="btn-primary" target="_blank">Book a Free Demo Class</a>
-        <a href="#how-it-works" class="btn-secondary">Learn More</a>
-      </div>
+<section class="hero">
+  <div class="hero-dots"></div>
+
+  <div class="hero-text">
+    <div class="hero-badge"><div class="badge-dot"></div>Now Enrolling Young Learners</div>
+    <h1>Learn English<br>the <span class="gold">fun way</span> <span class="pencil">✏️</span></h1>
+    <p class="hero-sub">Interactive online English classes for young learners ages 4–12. Taught by a certified ESL teacher with 15+ years of experience teaching students around the world.</p>
+    <div class="hero-btns">
+      <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="btn-primary" target="_blank">🎉 Book a Free Demo Class</a>
+      <a href="#how-it-works" class="btn-secondary">Learn More →</a>
     </div>
+  </div>
+
+  <div class="hero-card-wrap">
+    <div class="float-badge fb1">
+      <span style="font-size:20px">🏆</span>
+      <div><div style="color:#FFC600;font-size:13px">Achievement!</div><div style="font-size:10px;color:rgba(255,255,255,0.35);font-weight:600">Course completed</div></div>
+    </div>
+    <div class="float-badge fb2">
+      <span style="font-size:20px">⭐</span>
+      <div><div style="color:#fff;font-size:13px">Great work!</div><div style="font-size:10px;color:rgba(255,255,255,0.35);font-weight:600">Week 3 done</div></div>
+    </div>
+    <div class="float-badge fb3">
+      <span style="font-size:20px">📚</span>
+      <div><div style="color:#00C9A7;font-size:13px">New lesson</div><div style="font-size:10px;color:rgba(255,255,255,0.35);font-weight:600">Building Blocks</div></div>
+    </div>
+
     <div class="hero-card">
-      <div class="hero-card-ilz">ILZ</div>
-      <div class="hero-card-edu">Education</div>
-      <div class="hero-card-bar"><div class="hero-card-fill" style="width:100%"></div></div>
-      <div class="hero-card-bar"><div class="hero-card-fill" style="width:75%"></div></div>
-      <div class="hero-card-bar"><div class="hero-card-fill" style="width:88%"></div></div>
-      <div class="hero-card-bar"><div class="hero-card-fill" style="width:60%"></div></div>
-      <div class="hero-card-label">Powered by the ILZ App</div>
+      <div class="card-glow"></div>
+      <div class="card-ilz">ILZ</div>
+      <div class="card-sub">Education App</div>
+
+      <div class="card-grid">
+        <div class="card-item" style="background:rgba(255,198,0,0.08);border:1px solid rgba(255,198,0,0.15)">
+          <span class="card-item-icon">🌱</span>
+          <div><div class="card-item-name">Foundations</div><div class="card-item-sub">8 courses</div></div>
+        </div>
+        <div class="card-item" style="background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.15)">
+          <span class="card-item-icon">🧱</span>
+          <div><div class="card-item-name">Building Blocks</div><div class="card-item-sub">17 courses</div></div>
+        </div>
+        <div class="card-item" style="background:rgba(78,205,196,0.08);border:1px solid rgba(78,205,196,0.12)">
+          <span class="card-item-icon">📖</span>
+          <div><div class="card-item-name">Rising Readers</div><div class="card-item-sub">Coming soon</div></div>
+        </div>
+        <div class="card-item" style="background:rgba(123,94,167,0.08);border:1px solid rgba(123,94,167,0.15)">
+          <span class="card-item-icon">🌍</span>
+          <div><div class="card-item-name">English Explorer</div><div class="card-item-sub">Coming soon</div></div>
+        </div>
+      </div>
+
+      <div class="prog-row">
+        <div class="prog-label">Foundations</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:100%;background:#FFC600"></div></div>
+        <div class="prog-val" style="color:#FFC600">100%</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-label">Building Blocks</div>
+        <div class="prog-bar"><div class="prog-fill" style="width:15%;background:#00C9A7"></div></div>
+        <div class="prog-val" style="color:#00C9A7">15%</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PENCIL STRIP -->
-<div class="pencil-strip">
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#e53935;height:42px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #bf360c;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#f57c00;height:50px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #e65100;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#FFC600;height:46px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #f57f17;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#7cb342;height:54px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #558b2f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#00897b;height:40px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #00695c;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#1e88e5;height:50px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #1565c0;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#5e35b1;height:44px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #4527a0;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#d81b60;height:38px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #880e4f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#546e7a;height:48px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #37474f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#e53935;height:52px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #bf360c;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#f57c00;height:42px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #e65100;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#FFC600;height:56px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #f57f17;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#7cb342;height:40px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #558b2f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#1e88e5;height:46px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #1565c0;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#5e35b1;height:36px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #4527a0;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#00897b;height:50px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #00695c;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#d81b60;height:44px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #880e4f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#e53935;height:38px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #bf360c;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#FFC600;height:48px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #f57f17;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
-  <div class="ps-p"><div class="ps-eraser"></div><div class="ps-band"></div><div class="ps-body" style="background:#7cb342;height:54px"></div><div class="ps-wood"></div><div class="ps-tip" style="border-top:14px solid #558b2f;border-left:14px solid transparent;border-right:14px solid transparent"></div></div>
+<!-- PENCILS -->
+<div class="pencils">
+  <!-- 20 pencils with varying heights and colors -->
+  <div class="pen" style="height:85px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#e53935"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #bf360c"></div></div></div>
+  <div class="pen" style="height:95px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#f57c00"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #e65100"></div></div></div>
+  <div class="pen" style="height:78px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#FFC600"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #f57f17"></div></div></div>
+  <div class="pen" style="height:90px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#7cb342"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #558b2f"></div></div></div>
+  <div class="pen" style="height:82px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#00897b"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #00695c"></div></div></div>
+  <div class="pen" style="height:96px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#1e88e5"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #1565c0"></div></div></div>
+  <div class="pen" style="height:74px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#5e35b1"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #4527a0"></div></div></div>
+  <div class="pen" style="height:88px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#d81b60"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #880e4f"></div></div></div>
+  <div class="pen" style="height:80px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#6d4c41"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #4e342e"></div></div></div>
+  <div class="pen" style="height:93px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#546e7a"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #37474f"></div></div></div>
+  <div class="pen" style="height:77px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#e53935"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #bf360c"></div></div></div>
+  <div class="pen" style="height:91px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#FFC600"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #f57f17"></div></div></div>
+  <div class="pen" style="height:84px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#1e88e5"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #1565c0"></div></div></div>
+  <div class="pen" style="height:76px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#7cb342"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #558b2f"></div></div></div>
+  <div class="pen" style="height:98px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#5e35b1"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #4527a0"></div></div></div>
+  <div class="pen" style="height:83px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#d81b60"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #880e4f"></div></div></div>
+  <div class="pen" style="height:89px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#f57c00"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #e65100"></div></div></div>
+  <div class="pen" style="height:75px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#00897b"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #00695c"></div></div></div>
+  <div class="pen" style="height:94px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#FFC600"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #f57f17"></div></div></div>
+  <div class="pen" style="height:81px"><div class="pen-eraser"></div><div class="pen-band"></div><div class="pen-shaft" style="background:#e53935"></div><div class="pen-wood"></div><div class="pen-point"><div class="pen-tip" style="border-top:13px solid #bf360c"></div></div></div>
 </div>
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years teaching experience</div></div>
-  <div class="stat"><div class="stat-num">4</div><div class="stat-label">Curriculum levels</div></div>
-  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Online — learn anywhere</div></div>
+  <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Years teaching experience</div></div>
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">Curriculum levels</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Online — learn anywhere</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
 <section id="how-it-works">
-  <div class="section">
-    <div class="section-badge">How it works</div>
-    <div class="section-title">3 simple steps to get started</div>
+  <div class="wrap">
+    <div class="stag">How it works</div>
+    <div class="stitle">3 simple steps to get started 🚀</div>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-title">Book a free demo</div>
-        <div class="step-desc">Schedule a free 25-minute demo class so your child can meet Teacher Robert and experience the ILZ method firsthand. Parents are welcome to observe.</div>
+        <div class="step-accent" style="background:#FFC600"></div>
+        <div class="step-num" style="background:rgba(255,198,0,0.12);color:#FFC600">1</div>
+        <div class="step-t">Book a free demo</div>
+        <div class="step-d">Schedule a free 25-minute demo class so your child can meet Teacher Robert and experience the ILZ method firsthand. Parents are welcome to observe!</div>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-title">Get your app access</div>
-        <div class="step-desc">Once enrolled, you receive login credentials for the ILZ Education app — your child's personal learning hub with interactive lessons, games, and more.</div>
+        <div class="step-accent" style="background:#00C9A7"></div>
+        <div class="step-num" style="background:rgba(0,201,167,0.12);color:#00C9A7">2</div>
+        <div class="step-t">Get your app access</div>
+        <div class="step-d">Once enrolled, you receive personal login credentials for the ILZ Education app — your child's interactive learning hub with lessons and achievements.</div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-title">Start learning!</div>
-        <div class="step-desc">Weekly live classes plus in-app lessons keep your child engaged and growing. Track progress, earn certificates, and celebrate every milestone.</div>
+        <div class="step-accent" style="background:#7B5EA7"></div>
+        <div class="step-num" style="background:rgba(123,94,167,0.12);color:#7B5EA7">3</div>
+        <div class="step-t">Start learning!</div>
+        <div class="step-d">Weekly live classes plus in-app lessons keep your child engaged and growing. Track progress, earn certificates, and celebrate every milestone!</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CURRICULUM -->
-<section id="curriculum" style="background:#0d0d0d;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div class="section">
-    <div class="section-badge">Curriculum</div>
-    <div class="section-title">A complete learning journey</div>
+<div class="curriculum-bg" id="curriculum">
+  <div class="wrap">
+    <div class="stag">Curriculum</div>
+    <div class="stitle">A complete learning journey 📚</div>
     <div class="levels">
-      <div class="level-card" style="border-color:rgba(255,198,0,0.3);background:rgba(255,198,0,0.04);">
-        <div class="level-emoji">🌱</div>
-        <div class="level-name">Foundations</div>
-        <div class="level-count">8 courses · 4–6 weeks each</div>
-        <div class="level-bar"><div class="level-fill" style="width:100%;background:#FFC600;"></div></div>
-        <div class="level-status" style="color:#FFC600;">✓ Available now</div>
+      <div class="level" style="border-color:rgba(255,198,0,0.22);background:rgba(255,198,0,0.03)">
+        <div class="level-icon">🌱</div>
+        <div class="level-n">Foundations</div>
+        <div class="level-c">8 courses · 4–6 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:100%;background:#FFC600"></div></div>
+        <div class="level-s" style="color:#FFC600">✓ Available now</div>
       </div>
-      <div class="level-card" style="border-color:rgba(29,158,117,0.3);background:rgba(29,158,117,0.04);">
-        <div class="level-emoji">🧱</div>
-        <div class="level-name">Building Blocks</div>
-        <div class="level-count">17 courses · 3 weeks each</div>
-        <div class="level-bar"><div class="level-fill" style="width:50%;background:#1D9E75;"></div></div>
-        <div class="level-status" style="color:#1D9E75;">⟳ Coming soon</div>
+      <div class="level" style="border-color:rgba(0,201,167,0.22);background:rgba(0,201,167,0.03)">
+        <div class="level-icon">🧱</div>
+        <div class="level-n">Building Blocks</div>
+        <div class="level-c">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:40%;background:#00C9A7"></div></div>
+        <div class="level-s" style="color:#00C9A7">⟳ Coming soon</div>
       </div>
-      <div class="level-card">
-        <div class="level-emoji">📖</div>
-        <div class="level-name">Rising Readers</div>
-        <div class="level-count">17 courses · 3 weeks each</div>
-        <div class="level-bar"><div class="level-fill" style="width:0%;background:#378ADD;"></div></div>
-        <div class="level-status" style="color:rgba(255,255,255,0.2);">In development</div>
+      <div class="level">
+        <div class="level-icon">📖</div>
+        <div class="level-n">Rising Readers</div>
+        <div class="level-c">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:0%;background:#4ECDC4"></div></div>
+        <div class="level-s" style="color:rgba(255,255,255,0.2)">In development</div>
       </div>
-      <div class="level-card">
-        <div class="level-emoji">🌍</div>
-        <div class="level-name">English Explorer</div>
-        <div class="level-count">17 courses · 3 weeks each</div>
-        <div class="level-bar"><div class="level-fill" style="width:0%;background:#d81b60;"></div></div>
-        <div class="level-status" style="color:rgba(255,255,255,0.2);">In development</div>
+      <div class="level">
+        <div class="level-icon">🌍</div>
+        <div class="level-n">English Explorer</div>
+        <div class="level-c">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:0%;background:#7B5EA7"></div></div>
+        <div class="level-s" style="color:rgba(255,255,255,0.2)">In development</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ABOUT -->
-<div class="about-wrap" id="about">
-  <div class="about">
-    <div class="about-avatar">R</div>
-    <div>
-      <div class="about-name">Teacher Robert</div>
-      <div class="about-title">Certified ESL Instructor · Founder of ILZ Education</div>
-      <div class="about-bio">State certified ESL teacher since 2008 and TESOL certified since 2018. Former VIPKid and VIPX instructor with extensive experience teaching young learners in China and around the world. Now bringing that expertise directly to students everywhere through the ILZ Education platform — a completely custom-built interactive learning app designed specifically for children.</div>
-      <div class="about-badges">
-        <span class="badge">State Certified ESL</span>
-        <span class="badge">TESOL Certified</span>
-        <span class="badge">15+ Years Experience</span>
-        <span class="badge">Kids Specialist</span>
-        <span class="badge">Online Teaching Expert</span>
+<div class="about-bg" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <div class="avatar-box">R</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.18);text-align:center;margin-top:10px;font-weight:600">📸 Photo coming soon</div>
+      </div>
+      <div>
+        <div class="stag">About the teacher</div>
+        <div class="about-name">Teacher Robert</div>
+        <div class="about-role">Certified ESL Instructor · Founder of ILZ Education</div>
+        <div class="about-bio">State certified ESL teacher since 2008 and TESOL certified since 2018. Former VIPKid and VIPX instructor with extensive experience teaching young learners in China and around the world. Now bringing that expertise directly to students everywhere through the ILZ Education platform — a completely custom-built interactive learning app designed specifically for children.</div>
+        <div class="badges">
+          <span class="abadge">✓ State Certified ESL</span>
+          <span class="abadge">✓ TESOL Certified</span>
+          <span class="abadge">✓ 15+ Years Experience</span>
+          <span class="abadge">✓ Kids Specialist</span>
+          <span class="abadge">✓ Online Expert</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIAL -->
-<div class="testimonial-wrap">
-  <div class="testimonial">
-    <div class="testimonial-stars">★★★★★</div>
-    <div class="testimonial-quote">"My child looks forward to every class. Teacher Robert makes learning English exciting and fun. The ILZ app keeps him engaged between lessons too!"</div>
-    <div class="testimonial-author">— Parent of a student in China</div>
+<div class="testi-bg">
+  <div class="testi">
+    <div class="testi-stars">★★★★★</div>
+    <div class="testi-q">"My child looks forward to every class. Teacher Robert makes learning English exciting and fun!"</div>
+    <div class="testi-a">— Parent of a student in China</div>
   </div>
 </div>
 
 <!-- CTA -->
-<div class="cta-wrap" id="contact">
-  <div class="cta-section">
-    <div class="cta-title">Ready to start? ✏️</div>
-    <div class="cta-sub">Book a free 25-minute demo class today. Your child will meet Teacher Robert, experience an ILZ lesson, and you can ask any questions. No commitment required.</div>
-    <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="cta-btn" target="_blank">Book Your Free Demo Class</a>
+<div class="cta-bg" id="contact">
+  <div class="cta">
+    <div class="cta-t">Ready to start learning? ✏️</div>
+    <div class="cta-s">Book a free 25-minute demo class today. Your child will meet Teacher Robert, experience a real ILZ lesson, and you can ask any questions. No commitment required!</div>
+    <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="cta-btn" target="_blank">🎉 Book Your Free Demo Class</a>
     <div class="cta-note">Questions? Email us at rilzenglish@gmail.com</div>
   </div>
 </div>
@@ -418,7 +519,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="mailto:rilzenglish@gmail.com">rilzenglish@gmail.com</a></li>
   </ul>
-  <div class="footer-copy">© 2025 North Pole Dev Co. All rights reserved.</div>
+  <div class="footer-copy">© 2026 North Pole Dev Co. All rights reserved.</div>
 </footer>
 
 </body>
