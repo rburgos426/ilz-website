@@ -1,1 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ILZ Education | English Classes for Young Learners</title>
+<meta name="description" content="Interactive online English classes for young learners ages 4-12. Certified ESL teacher with 15+ years of experience. Book a free demo class today!">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #111; color: #fff; overflow-x: hidden; }
 
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 40px;
+  background: rgba(17,17,17,0.97);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo { font-size: 24px; font-weight: 900; color: #FFC600; letter-spacing: -1px; text-decoration: none; }
+.nav-logo span { color: rgba(255,255,255,0.45); font-weight: 400; font-size: 14px; margin-left: 6px; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: #FFC600; color: #111; font-size: 14px; font-weight: 700;
+  padding: 10px 22px; border-radius: 100px; text-decoration: none;
+}
+.nav-cta:hover { opacity: 0.9; }
+
+/* HERO */
+.hero {
+  padding: 60px 40px;
+  display: flex; align-items: center; gap: 60px;
+  max-width: 1100px; margin: 0 auto;
+}
+.hero-text { flex: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,198,0,0.1); border: 1px solid rgba(255,198,0,0.3);
+  border-radius: 100px; padding: 5px 16px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  color: #FFC600; text-transform: uppercase; margin-bottom: 24px;
+}
+.hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #FFC600; }
+.hero-h1 { font-size: 52px; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 20px; letter-spacing: -2px; }
+.hero-h1 .gold { color: #FFC600; }
+.hero-sub { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: #FFC600; color: #111; font-size: 15px; font-weight: 700;
+  padding: 14px 32px; border-radius: 14px; text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-secondary {
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7);
+  font-size: 15px; font-weight: 600;
+  padding: 14px 32px; border-radius: 14px; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12); display: inline-block;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+/* HERO CARD */
+.hero-card {
+  width: 320px; flex-shrink: 0;
+  background: linear-gradient(145deg, #1a1a2e, #16213e);
+  border-radius: 24px; padding: 32px;
+  border: 1px solid rgba(255,198,0,0.2);
+}
+.hero-card-ilz { font-size: 64px; font-weight: 900; color: #FFC600; letter-spacing: -3px; line-height: 1; }
+.hero-card-edu { font-size: 12px; letter-spacing: 5px; color: rgba(255,255,255,0.3); margin-bottom: 24px; text-transform: uppercase; font-weight: 600; }
+.card-levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+.card-level {
+  border-radius: 10px; padding: 10px 12px;
+  font-size: 12px; font-weight: 700;
+}
+.card-level-name { color: rgba(255,255,255,0.8); margin-bottom: 2px; }
+.card-level-sub { font-size: 10px; color: rgba(255,255,255,0.3); font-weight: 600; }
+.card-prog { margin-top: 4px; }
+.card-prog-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.card-prog-label { font-size: 11px; color: rgba(255,255,255,0.4); width: 110px; font-weight: 600; }
+.card-prog-bar { flex: 1; height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+.card-prog-fill { height: 100%; border-radius: 3px; }
+.card-prog-val { font-size: 11px; font-weight: 800; }
+
+/* PENCILS */
+.pencil-section {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 0;
+  overflow: hidden;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+.pencil-row {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+.pencil {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pencil:nth-child(3n+1) { animation: bounce1 2.2s ease-in-out infinite; }
+.pencil:nth-child(3n+2) { animation: bounce2 2.6s ease-in-out 0.4s infinite; }
+.pencil:nth-child(3n+3) { animation: bounce3 2.0s ease-in-out 0.8s infinite; }
+@keyframes bounce1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes bounce2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes bounce3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.p-eraser { width: 18px; height: 8px; background: #f4c5c5; border-radius: 3px 3px 0 0; }
+.p-band { width: 18px; height: 5px; background: #bbb; }
+.p-body { width: 18px; }
+.p-wood { width: 18px; height: 8px; background: #D4A96A; }
+.p-point { width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; }
+
+/* STATS */
+.stats { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+.stat { padding: 32px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); }
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 36px; font-weight: 900; color: #FFC600; }
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+
+/* SECTIONS */
+.section { padding: 64px 40px; max-width: 1100px; margin: 0 auto; }
+.section-badge { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #FFC600; text-transform: uppercase; margin-bottom: 10px; }
+.section-title { font-size: 32px; font-weight: 900; margin-bottom: 36px; color: #fff; letter-spacing: -0.5px; }
+
+/* STEPS */
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.step { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 28px; }
+.step-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #FFC600; color: #111; font-size: 18px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.step-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.step-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+/* LEVELS */
+.levels-wrap { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+.levels { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.level { border-radius: 16px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
+.level-emoji { font-size: 24px; margin-bottom: 10px; }
+.level-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.level-count { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+.level-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); margin-bottom: 8px; overflow: hidden; }
+.level-fill { height: 100%; border-radius: 2px; }
+.level-status { font-size: 11px; font-weight: 600; }
+
+/* ABOUT */
+.about-wrap { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); }
+.about { padding: 64px 40px; max-width: 1100px; margin: 0 auto; display: flex; gap: 48px; align-items: flex-start; }
+.about-avatar {
+  width: 100px; height: 100px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #FFC600, #ff8c00);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; font-weight: 900; color: #111;
+  border: 3px solid rgba(255,198,0,0.3);
+}
+.about-name { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+.about-title { font-size: 13px; color: #FFC600; margin-bottom: 16px; font-weight: 600; }
+.about-bio { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 600px; }
+.about-badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 100px; background: rgba(255,198,0,0.1); color: #FFC600; border: 1px solid rgba(255,198,0,0.2); }
+
+/* TESTIMONIAL */
+.testi-wrap { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,0.07); }
+.testi { padding: 64px 40px; max-width: 700px; margin: 0 auto; text-align: center; }
+.testi-stars { color: #FFC600; font-size: 18px; margin-bottom: 16px; }
+.testi-quote { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+.testi-author { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+/* CTA */
+.cta-wrap { border-top: 1px solid rgba(255,255,255,0.07); }
+.cta { padding: 80px 40px; text-align: center; max-width: 700px; margin: 0 auto; }
+.cta-title { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -1px; }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 32px; line-height: 1.6; }
+.cta-btn {
+  display: inline-block; background: #FFC600; color: #111;
+  font-size: 17px; font-weight: 700; padding: 16px 48px; border-radius: 16px; text-decoration: none;
+}
+.cta-btn:hover { opacity: 0.9; }
+.cta-note { font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 16px; }
+
+/* FOOTER */
+footer {
+  padding: 24px 40px; display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.07); background: #0a0a0a; flex-wrap: wrap; gap: 12px;
+}
+.footer-logo { font-size: 16px; font-weight: 900; color: #FFC600; }
+.footer-links { display: flex; gap: 20px; list-style: none; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { flex-direction: column; padding: 40px 20px; gap: 32px; }
+  .hero-h1 { font-size: 36px; }
+  .hero-card { width: 100%; }
+  .steps { grid-template-columns: 1fr; }
+  .levels { grid-template-columns: repeat(2,1fr); }
+  .about { flex-direction: column; padding: 40px 20px; gap: 24px; }
+  .section { padding: 40px 20px; }
+  footer { flex-direction: column; text-align: center; padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ILZ <span>Education</span></a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/privacy-policy">Privacy</a></li>
+  </ul>
+  <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="nav-cta" target="_blank">Book Free Demo</a>
+</nav>
+
+<!-- HERO -->
+<div style="background:#111;">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge"><div class="hero-badge-dot"></div>Now enrolling young learners</div>
+      <h1 class="hero-h1">Learn English<br>the <span class="gold">fun way</span> ✏️</h1>
+      <p class="hero-sub">Interactive online English classes for young learners ages 4–12. Taught by a certified ESL teacher with 15+ years of experience teaching students worldwide.</p>
+      <div class="hero-btns">
+        <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="btn-primary" target="_blank">Book a Free Demo Class</a>
+        <a href="#how-it-works" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-ilz">ILZ</div>
+      <div class="hero-card-edu">Education</div>
+
+      <div class="card-levels">
+        <div class="card-level" style="background:rgba(255,198,0,0.08);border:1px solid rgba(255,198,0,0.15)">
+          <div class="card-level-name">🌱 Foundations</div>
+          <div class="card-level-sub">8 courses</div>
+        </div>
+        <div class="card-level" style="background:rgba(0,180,140,0.08);border:1px solid rgba(0,180,140,0.15)">
+          <div class="card-level-name">🧱 Building Blocks</div>
+          <div class="card-level-sub">17 courses</div>
+        </div>
+        <div class="card-level" style="background:rgba(78,205,196,0.08);border:1px solid rgba(78,205,196,0.12)">
+          <div class="card-level-name">📖 Rising Readers</div>
+          <div class="card-level-sub">Coming soon</div>
+        </div>
+        <div class="card-level" style="background:rgba(123,94,167,0.08);border:1px solid rgba(123,94,167,0.15)">
+          <div class="card-level-name">🌍 English Explorer</div>
+          <div class="card-level-sub">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="card-prog">
+        <div class="card-prog-row">
+          <div class="card-prog-label">Foundations</div>
+          <div class="card-prog-bar"><div class="card-prog-fill" style="width:100%;background:#FFC600"></div></div>
+          <div class="card-prog-val" style="color:#FFC600">100%</div>
+        </div>
+        <div class="card-prog-row">
+          <div class="card-prog-label">Building Blocks</div>
+          <div class="card-prog-bar"><div class="card-prog-fill" style="width:15%;background:#00B48C"></div></div>
+          <div class="card-prog-val" style="color:#00B48C">15%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PENCILS -->
+<div class="pencil-section">
+  <div class="pencil-row">
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#e53935;height:38px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #bf360c"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#f57c00;height:46px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #e65100"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#FFC600;height:42px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #f57f17"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#7cb342;height:50px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #558b2f"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#00897b;height:36px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #00695c"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#1e88e5;height:48px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #1565c0"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#5e35b1;height:40px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #4527a0"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#d81b60;height:44px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #880e4f"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#6d4c41;height:34px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #4e342e"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#546e7a;height:46px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #37474f"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#e53935;height:52px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #bf360c"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#FFC600;height:38px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #f57f17"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#1e88e5;height:44px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #1565c0"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#7cb342;height:36px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #558b2f"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#5e35b1;height:50px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #4527a0"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#d81b60;height:40px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #880e4f"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#f57c00;height:46px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #e65100"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#00897b;height:42px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #00695c"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#FFC600;height:48px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #f57f17"></div></div>
+    <div class="pencil"><div class="p-eraser"></div><div class="p-band"></div><div class="p-body" style="background:#e53935;height:38px"></div><div class="p-wood"></div><div class="p-point" style="border-top:12px solid #bf360c"></div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years teaching experience</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">Curriculum levels</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Online — learn anywhere</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section">
+    <div class="section-badge">How it works</div>
+    <div class="section-title">3 simple steps to get started</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Book a free demo</div>
+        <div class="step-desc">Schedule a free 25-minute demo class so your child can meet Teacher Robert and experience the ILZ method firsthand. Parents are welcome to observe.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Get your app access</div>
+        <div class="step-desc">Once enrolled, you receive login credentials for the ILZ Education app — your child's personal learning hub with interactive lessons, games, and more.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Start learning!</div>
+        <div class="step-desc">Weekly live classes plus in-app lessons keep your child engaged and growing. Track progress, earn certificates, and celebrate every milestone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<div class="levels-wrap" id="curriculum">
+  <div class="section">
+    <div class="section-badge">Curriculum</div>
+    <div class="section-title">A full learning journey</div>
+    <div class="levels">
+      <div class="level" style="border-color:rgba(255,198,0,0.3)">
+        <div class="level-emoji">🌱</div>
+        <div class="level-name">Foundations</div>
+        <div class="level-count">8 courses · 4–6 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:100%;background:#FFC600"></div></div>
+        <div class="level-status" style="color:#FFC600">✓ Available now</div>
+      </div>
+      <div class="level" style="border-color:rgba(0,180,140,0.3)">
+        <div class="level-emoji">🧱</div>
+        <div class="level-name">Building Blocks</div>
+        <div class="level-count">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:50%;background:#00B48C"></div></div>
+        <div class="level-status" style="color:#00B48C">⟳ Coming soon</div>
+      </div>
+      <div class="level">
+        <div class="level-emoji">📖</div>
+        <div class="level-name">Rising Readers</div>
+        <div class="level-count">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:0%;background:#4ECDC4"></div></div>
+        <div class="level-status" style="color:rgba(255,255,255,0.2)">In development</div>
+      </div>
+      <div class="level">
+        <div class="level-emoji">🌍</div>
+        <div class="level-name">English Explorer</div>
+        <div class="level-count">17 courses · 3 weeks each</div>
+        <div class="level-bar"><div class="level-fill" style="width:0%;background:#7B5EA7"></div></div>
+        <div class="level-status" style="color:rgba(255,255,255,0.2)">In development</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-wrap" id="about">
+  <div class="about">
+    <div class="about-avatar">R</div>
+    <div>
+      <div class="about-name">Teacher Robert</div>
+      <div class="about-title">Certified ESL Instructor · Founder of ILZ Education</div>
+      <div class="about-bio">State certified ESL teacher since 2008 and TESOL certified since 2018. Former VIPKid and VIPX instructor with extensive experience teaching young learners in China and around the world. Now bringing that expertise directly to students everywhere through the ILZ Education platform — a completely custom-built interactive learning app designed specifically for children.</div>
+      <div class="about-badges">
+        <span class="badge">State Certified ESL</span>
+        <span class="badge">TESOL Certified</span>
+        <span class="badge">15+ Years Experience</span>
+        <span class="badge">Kids Specialist</span>
+        <span class="badge">Online Teaching Expert</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testi-wrap">
+  <div class="testi">
+    <div class="testi-stars">★★★★★</div>
+    <div class="testi-quote">"My child looks forward to every class. Teacher Robert makes learning English exciting and fun. The ILZ app keeps him engaged between lessons too!"</div>
+    <div class="testi-author">— Parent of a student in China</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap" id="contact">
+  <div class="cta">
+    <div class="cta-title">Ready to start? ✏️</div>
+    <div class="cta-sub">Book a free 25-minute demo class today. Your child will meet Teacher Robert, experience an ILZ lesson, and you can ask any questions. No commitment required.</div>
+    <a href="https://tidycal.com/rilzenglish/schedule-a-free-demo-class" class="cta-btn" target="_blank">Book Your Free Demo Class</a>
+    <div class="cta-note">Questions? Email us at rilzenglish@gmail.com</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ILZ Education</div>
+  <ul class="footer-links">
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:rilzenglish@gmail.com">rilzenglish@gmail.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 North Pole Dev Co. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
